@@ -1,0 +1,8 @@
+Introduction to Cloud Data Warehouses with Azure
+Intro to Data Warehouses, ETL, and OLAP cubes
+ELT and Data Warehouse technology in the cloud - ETL/ELT, Cloud DW technologies
+Azure DW Technologies & Solutions
+Implementing DWs in Azure, using Azure Synapse Analytics
+
+PROJECT:
+BUILDING AN AZURE DATA WAREHOUE FOR BIKE SHARE DATA ANALYTICS
