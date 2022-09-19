@@ -1,3 +1,6 @@
 Data Set files to work with for the Project
-1. Actual files
-2. Checkpoint files
+Actual files
+Checkpoint files
+
+4 Files:
+Payments, Riders, Trips, Stations
