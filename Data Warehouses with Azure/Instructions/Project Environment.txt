@@ -1,0 +1,13 @@
+Project Environment
+In order to complete this project, you'll need to use these tools:
+
+Access to Microsoft Azure. Instructions for accessing an Azure account where you can create the resources necessary for the project are on the previous page
+Python to run the script to load data into a PostgreSQL database on Azure to simulate your OLTP data source
+An editor to work with the Python and SQL scripts, we recommend Visual Studio Code
+Local Machine Instructions
+To work locally on this project, you'll need to have Python and Visual Studio Code installed, or another editor of your choice to run Python scripts.
+
+Starter Code and Data
+You'll need a Python script found in the Github project starter repository. Instructions for using this script for loading data are on the next page, in the project instructions
+
+You'll need the dataset from the course resources menu in the left navigation bar. Instructions for how to use the data in your project are on the next page in the project instructions
