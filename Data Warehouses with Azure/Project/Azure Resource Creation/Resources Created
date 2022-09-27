@@ -1,0 +1,5 @@
+Create Azure resources
+• Azure PostgreSQL database
+• Azure Blob Storage
+• Azure Synapse workspace (comes with Azure DataLake Gen2 storage in the process)
+• Dedicated SQL Pool and database within the Synapse workspace (Connected on Synapse studio)
