@@ -1,0 +1,36 @@
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
+	CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
+	WITH ( FORMAT_TYPE = DELIMITEDTEXT ,
+	       FORMAT_OPTIONS (
+			 FIELD_TERMINATOR = ',',
+			 USE_TYPE_DEFAULT = FALSE
+			))
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'divvyws1datalakefilesys_divvyws1datalakestorage_dfs_core_windows_net') 
+	CREATE EXTERNAL DATA SOURCE [divvyws1datalakefilesys_divvyws1datalakestorage_dfs_core_windows_net] 
+	WITH (
+		LOCATION = 'abfss://divvyws1datalakefilesys@divvyws1datalakestorage.dfs.core.windows.net', 
+		TYPE = HADOOP 
+	)
+GO
+
+CREATE EXTERNAL TABLE stagingtrip (
+	[trip_id] [nvarchar](4000)  NULL,
+	[rideable_type] [nvarchar](4000)  NULL,
+	[tripstarttime] [varchar](50)  NULL,
+	[tripendtime] [varchar](50)  NULL,
+	[start_station_id] [nvarchar](4000)  NULL,
+	[end_station_id] [nvarchar](4000)  NULL,
+	[rider_id] [bigint]  NULL
+	)
+	WITH (
+	LOCATION = 'publictrip.txt',
+	DATA_SOURCE = [divvyws1datalakefilesys_divvyws1datalakestorage_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+	)
+GO
+
+
+SELECT TOP 100 * FROM dbo.stagingtrip
+GO
