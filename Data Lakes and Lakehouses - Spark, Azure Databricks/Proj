@@ -1,0 +1,74 @@
+Meets Specifications
+Dear student,
+
+That was an excellent work on this project. You've done an amazing job. :clap:
+I'm impressed with how much you've accomplished on this first submission!
+
+You've flawlessly:
+
+Designed the Star Schema for this project.
+Read the staging CSVs and wrote them into the Delta filesystem.
+Created the Delta staging tables using Spark SQL.
+Created the Gold Delta tables for the fact and dimension tables using saveAsTable.
+Congratulations on completing Azure Data Lakehouse project!
+
+Suggestion for future read/implementation:
+
+You could have removed personal information from the rider dimension to avoid exposing PII information. For example: the first and last names and addresses.
+For more info on that, check this link.
+I hope you've enjoyed and learned a lot from it.
+
+Good luck with your next Data endeavors!
+
+Star Schema Design
+The star schema should have at least two fact tables. One should be related to trip facts and another should be related to payment facts. The trip fact should have a fields for trip duration and rider age at time of trip. The payment fact should have a field related to amount of payment.
+
+Great job on this one!
+
+✅ The schema has two fact tables; one related to trips and another related to payments.
+✅ The trip fact table has a field related to trip duration and rider age at the time of the trip.
+✅ The payment fact table has a field related to the amount of payment.
+✅ The fact tables have the appropriate keys to the dimensions.
+The star schema should have dimensions related to the trip fact table that are related to: riders, stations, and dates. The schema should have dimensions related to the payment fact table that are related to: dates and riders.
+
+Great one on the dimensions as well!
+
+✅ You've created three dimensions:
+The rider and date dimensions are related to the payment fact.
+The rider, date, and station dimensions are related to the trip fact.
+Extract Step
+The notebook should contain Python code to extract information from CSV files stored in Databricks and write it to the Delta file system.
+
+Excellent job on this one!
+
+✅ The project correctly reads the CSV files and creates the dataframes with correct column names.
+The notebook should contain Python code that picks files up from the Databricks file system storage and writes it out to Delta file locations.
+
+✅ Great job here!
+
+The staging dataframes are written into Delta file locations.
+Load Step
+The notebook should contain code that creates tables and loads data from Delta files. The learner should use spark.sql statements to create the tables and then load data from the files that were extracted in the Extract step.
+
+✅ Great one!
+
+You've correctly created all four tables using Spark SQL statements and the CREATE TABLE ..... USING DELTA LOCATION.....
+
+Transform Step
+The fact table Python scripts should contain appropriate keys from the dimensions. In addition, the fact table scripts should appropriately generate the correct facts based on the diagrams provided in the first step.
+
+Excellent job on this one!
+
+✅ Both fact tables contain the appropriate keys
+✅ The column names and data types are the same ones as defined in the Star schema.
+The dimension Python scripts should match the schema diagram. Dimensions should generate appropriate keys and should not contain facts.
+
+Great work on the dimensions as well!
+
+✅ All three dimensions tables contain the appropriate keys
+✅ The column names and data types are the same ones as defined in the Star schema.
+The transform scripts should at minimum adhere to the following: should write to delta; should use overwrite mode; save as a table in delta.
+
+✅ Great work!
+
+The final tables are created using saveAsTable using Delta format and overwrite mode.
