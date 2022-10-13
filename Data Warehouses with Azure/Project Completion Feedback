@@ -1,0 +1,39 @@
+Meets Specifications
+Congratulations
+The project is now completed and meets all the requirement, I hope you had a great learning time doing this project.
+
+All the best for the next one
+
+
+
+Data warehousing in Microsoft Azure
+
+Star Schema Design
+The star schema should have at least two fact tables. One should be related to trip facts and another should be related to payment facts. The trip fact should have a fields for trip duration and rider age at time of trip. The payment fact should have a field related to amount of payment.
+
+The star schema should have dimensions related to the trip fact table that are related to: riders, stations, and dates. The schema should have dimensions related to the payment fact table that are related to: dates and riders.
+
+Extract Step
+The screenshot should be of the Azure Blob Storage and should contain 4 text files: public.payment, public.rider, public.trip, public.station.
+
+Great job here!
+
+All four files are present in the screenshot:
+
+✅ importpayment.csv
+✅ importrider.csv
+✅ importstation.csv
+✅ importtrip.csv
+
+Load Step
+The student will have uploaded 4 separate script files. The SQL files should create tables using CREATE EXTERNAL TABLE (not just CREATE TABLE). The scripts should point to the four files in Blob Storage from the extract step.
+
+Transform step
+The fact table scripts should contain appropriate keys from the dimensions. In addition, the fact table scripts should appropriately generate the correct facts based on the diagrams provided in the first step.
+
+The fact table have the keys from the dimension tables
+Insert statements for all the tables looks good
+The dimension scripts should match the schema diagram. Dimensions should generate appropriate keys and should not contain facts.
+
+Tables created are matching the schema provided.
+I do not see any field that is fact column in your dimension tables, good work
