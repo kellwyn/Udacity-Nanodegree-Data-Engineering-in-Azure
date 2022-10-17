@@ -1,0 +1,9 @@
+{
+	"name": "datapipenycadf",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "456a9b37-b11e-42ec-9bbd-7b177f62b1bb",
+		"tenantId": "9b7cbd77-6d6b-4879-8aba-63d7dfb18472"
+	}
+}

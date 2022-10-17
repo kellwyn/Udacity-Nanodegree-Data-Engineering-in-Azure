@@ -1,0 +1,41 @@
+{
+	"name": "Pipeline Load Agency Master to Synapse",
+	"properties": {
+		"activities": [
+			{
+				"name": "dataflow_agencymaster",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow_agencymaster",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "ls_datalakestorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsyncpayroll-kellwyne/dirstaging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-10-14T09:02:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

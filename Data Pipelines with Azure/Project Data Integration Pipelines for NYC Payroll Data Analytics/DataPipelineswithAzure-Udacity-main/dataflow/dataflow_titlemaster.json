@@ -1,0 +1,58 @@
+{
+	"name": "dataflow_titlemaster",
+	"properties": {
+		"description": "data flows to load the data from the data lake files into the Synapse Analytics data tables",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "titlemaster",
+						"type": "DatasetReference"
+					},
+					"name": "datalaketitlemaster"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "synapse_nyc_payroll_title_md",
+						"type": "DatasetReference"
+					},
+					"name": "synapsetitlemastertable",
+					"description": "Export data to synapse_nyc_payroll_title_md"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          TitleCode as string,",
+				"          TitleDescription as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> datalaketitlemaster",
+				"datalaketitlemaster sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          TitleCode as string,",
+				"          TitleDescription as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          TitleCode,",
+				"          TitleDescription",
+				"     )) ~> synapsetitlemastertable"
+			]
+		}
+	}
+}
